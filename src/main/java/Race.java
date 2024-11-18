@@ -51,16 +51,15 @@ public class Race {
     }
 
     Vehicle raceWinnerCalculate() {
-        Vehicle winner = null;
         int count = 1;
         for (String key : vehicles.keySet()) {
             if (count == 1) {
-                winner = vehicles.get(key);
+                this.raceWinner = vehicles.get(key);
                 count++;
-            } else if (winner.vehicleSpeed < vehicles.get(key).vehicleSpeed) {
-                winner = vehicles.get(key);
+            } else if (this.raceWinner.vehicleSpeed < vehicles.get(key).vehicleSpeed) {
+                this.raceWinner = vehicles.get(key);
             }
         }
-        return winner;
+        return this.raceWinner;
     }
 }
